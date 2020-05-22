@@ -1,0 +1,11 @@
+Carlos,18,180,69,Guimarães,Norte,False,m
+Diogo,20,182,95,Viana,Norte,False,m
+Joao,55,200,140,Algarve,Sul,True,m
+Diana,22,163,55,Lisboa,Centro,True,f
+Rita,18,165,59,Aveiro,Norte,False,f
+Luisa,18,163,59,Braga,Norte,True,f
+Vitor,20,180,70,Porto,Norte,True,m
+Joana,45,167,65,Porto,Norte,True,f
+Joao,17,180,76,braga,norte,True,m
+Francisco,35,123,21,bairro,centro,False,m
+Lufer,194,200,70,viana,norte,True,m
