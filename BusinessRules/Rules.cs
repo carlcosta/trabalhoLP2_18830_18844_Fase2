@@ -96,19 +96,6 @@ namespace BusinessRules
             }
         }
 
-        public static void RemovePatientTemp(int id)
-        {
-            try
-            {
-                Patients.RemovePatientTemp(id);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public static void ChangeStatus(int id)
         {
             try
@@ -147,6 +134,19 @@ namespace BusinessRules
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public static void RemovePatient(int id)
+        {
+            try
+            {
+                Patients.RemovePatient(id);
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

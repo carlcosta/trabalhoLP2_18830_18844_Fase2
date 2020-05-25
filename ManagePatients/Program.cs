@@ -176,20 +176,28 @@ namespace ManagePatients
 
 						Console.WriteLine("Nome do paciente: ");
 						name = Console.ReadLine();
+						Console.Clear();
 						Console.WriteLine("Idade do paciente: ");
 						age = int.Parse(Console.ReadLine());
+						Console.Clear();
 						Console.WriteLine("Altura do paciente: ");
 						height = int.Parse(Console.ReadLine());
+						Console.Clear();
 						Console.WriteLine("Peso do paciente: ");
 						weight = int.Parse(Console.ReadLine());
+						Console.Clear();
 						Console.WriteLine("Morada do paciente: ");
 						adress = Console.ReadLine();
+						Console.Clear();
 						Console.WriteLine("Regiao do paciente: ");
 						region = Console.ReadLine();
+						Console.Clear();
 						Console.WriteLine("Sexo do paciente: ");
 						gender = Console.ReadLine();
+						Console.Clear();
 						Console.WriteLine("Estado do paciente: ");
 						status = Boolean.Parse(Console.ReadLine());
+						Console.Clear();
 
 						Patient p = new Patient(name, age, height, weight, adress, region, status, gender);
 						id = 0;
@@ -213,6 +221,7 @@ namespace ManagePatients
 
 						Console.WriteLine("Digite a regiao: ");
 						opcao = Console.ReadLine();
+						Console.Clear();
 						Rules.CasesByRegion(opcao);
 						
 						break;
@@ -221,6 +230,7 @@ namespace ManagePatients
 
 						Console.WriteLine("Digite o sexo: ");
 						opcao = Console.ReadLine();
+						Console.Clear();
 						Rules.CasesByGender(opcao);
 
 						break;
@@ -229,6 +239,7 @@ namespace ManagePatients
 
 						Console.WriteLine("Digite a idade: ");
 						opcaoI = int.Parse(Console.ReadLine());
+						Console.Clear();
 						Rules.CasesByAge(opcaoI);
 
 						break;
@@ -237,7 +248,8 @@ namespace ManagePatients
 
 						Console.WriteLine("Digite o Id do paciente: ");
 						opcaoI = int.Parse(Console.ReadLine());
-						Rules.RemovePatientTemp(opcaoI);
+						Console.Clear();
+						Rules.RemovePatient(opcaoI);
 
 						break;
 
@@ -245,6 +257,7 @@ namespace ManagePatients
 
 						Console.WriteLine("Digite o Id do paciente: ");
 						opcaoI = int.Parse(Console.ReadLine());
+						Console.Clear();
 						Rules.ChangeStatus(opcaoI);
 
 						break;
@@ -263,7 +276,7 @@ namespace ManagePatients
 					Console.Clear();
 				}
 				
-			} while (myChoice != 0 && myChoice != 0);
+			} while (myChoice != 0);
 
             #endregion
         }

@@ -11,6 +11,8 @@ namespace Data
 {
     public class Patients 
     {
+
+
         private static List<Patient> allPatients; //criação da lista privada
 
         static Patients()
@@ -95,14 +97,14 @@ namespace Data
             {
                 if (item.Status == true)
                 {
-                    status = "Infentado";
+                    status = "Infetado";
                 }
                 else
                 {
-                    status = "Não Infentado";
+                    status = "Não Infetado";
                 }
                 Console.WriteLine("----- Estado do Paciente -----\n");
-                Console.WriteLine($"{item.Id}\nNome: {item.Name}\nIdade: {item.Age}\nAltura {item.Height}\nPeso {item.Weight}\nRegiao: {item.Region}\nMorada: {item.Adress}\nSexo: {item.Gender}\nInfetado: {status}\n");
+                Console.WriteLine($"ID: {item.Id}\nNome: {item.Name}\nIdade: {item.Age}\nAltura {item.Height}\nPeso {item.Weight}\nRegiao: {item.Region}\nMorada: {item.Adress}\nSexo: {item.Gender}\nInfetado: {status}\n");
                 Console.WriteLine();
             }
         }
@@ -132,11 +134,11 @@ namespace Data
             {
                 if (item.Status == true)
                 {
-                    status = "Infentado";
+                    status = "Infetado";
                 }
                 else
                 {
-                    status = "Não Infentado";
+                    status = "Não Infetado";
                 }
                 bool result = string.Equals(item.Region, region, StringComparison.OrdinalIgnoreCase);
                 if (result)
@@ -164,11 +166,11 @@ namespace Data
             {
                 if (item.Status == true)
                 {
-                    status = "Infentado";
+                    status = "Infetado";
                 }
                 else
                 {
-                    status = "Não Infentado";
+                    status = "Não Infetado";
                 }
                 bool result = string.Equals(item.Gender, gender, StringComparison.OrdinalIgnoreCase);
                 if (result)
@@ -197,11 +199,11 @@ namespace Data
                 {
                     if (item.Status == true)
                     {
-                        status = "Infentado";
+                        status = "Infetado";
                     }
                     else
                     {
-                        status = "Não Infentado";
+                        status = "Não Infetado";
                     }
                     Console.WriteLine("----- Estado do Paciente -----\n");
                     Console.WriteLine($"ID: {item.Id}\nNome: {item.Name}\nIdade: {item.Age}\nRegion: {item.Region}\nMorada: {item.Adress}\nSexo: {item.Gender}\nInfetado: {status}\n");
@@ -217,11 +219,22 @@ namespace Data
             Console.WriteLine("\nNumero total de infetados com {0} anos: {1}\n", age, counter);
         }
 
-        public static void RemovePatientTemp(int id) //Remove um paciente temporariamente da aplicação
+        public static void RemovePatient(int id) //Remove um paciente temporariamente da aplicação
         {
+            string filePath = @"D:\LP2\data.txt";
+
             var removeId = allPatients.SingleOrDefault(r => r.Id == id); //removeId toma o valor da comparacao feita entre o id da lista e o id recebido
             if (removeId != null) //caso o resultado der null então 
                 allPatients.Remove(removeId); //É feita a remoção do paciente
+
+            List<string> output = new List<string>(); //cria uma nova lista para armazenar o novo output 
+
+            foreach (var item in allPatients) //percorre todos os dados na lista
+            {
+                output.Add($"{item.Name},{item.Age},{item.Height},{item.Weight},{item.Adress},{item.Region},{item.Status},{item.Gender}"); //adiciona as variaveis introduzidas na lista do output
+            }
+
+            File.WriteAllLines(filePath, output);
 
             Console.WriteLine("Paciente removido");
         }
@@ -229,18 +242,20 @@ namespace Data
         public static void ChangeStatus(int id)
         {
             string status;
+            string filePath = @"D:\LP2\data.txt";
+            List<string> output = new List<string>();
 
-                foreach (var item in allPatients)
+            foreach (var item in allPatients)
                 {
                     if (item.Id == id)
                     {
                     if (item.Status == true)
                     {
-                        status = "Infentado";
+                        status = "Infetado";
                     }
                     else
                     {
-                        status = "Não Infentado";
+                        status = "Não Infetado";
                     }
 
                     if (item.Status == true)
@@ -254,8 +269,11 @@ namespace Data
                             Console.WriteLine($"ID:{item.Id}\nNome:{item.Name}\nEstado alterado: {status}\n");
                         }
                     }
-                }
-            }
+
+                output.Add($"{item.Name},{item.Age},{item.Height},{item.Weight},{item.Adress},{item.Region},{item.Status},{item.Gender}");
+                            }
+            File.WriteAllLines(filePath, output);
+        }
 
         #endregion 
 
